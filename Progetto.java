@@ -1,6 +1,28 @@
 import java.util.Scanner;
 public class Progetto {
 
+    public static void inserisciSimbolo(char[][] griglia, int colonna, char simboloGiocatore1, char simboloGiocatore2, int righe) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Inserisci la colonna (1-7) per il simbolo: \n");
+        int colonnaScelta = scanner.nextInt();
+
+        for (int i = righe - 1; i >= 0; i--) {
+            griglia[i][(colonnaScelta - 1) * 2 + 1] = simboloGiocatore1;
+        }if(colonnaScelta < 1 || colonnaScelta > 7) {
+            System.out.println("Colonna non valida. Inserisci un numero tra 1 e 7.");
+            return;
+        }
+        stampaGriglia(griglia, righe, colonna);
+    }
+
+    public static char alternaTurni() {
+
+        return 'X';
+
+       
+    }
+
+
 
 
     public static void stampaGriglia(char[][] griglia, int righe, int colonne) {
@@ -18,7 +40,10 @@ public class Progetto {
         System.out.println(" 1  2  3  4  5  6  7 ");
     }
 
+
+    
     public static void main(String[] args) {
+        
 
         int righe = 16;
         int colonne = 16;
@@ -41,11 +66,12 @@ public class Progetto {
             switch (scelta) {
                 case 1:
                     stampaGriglia(griglia, righe, colonne);
-                    
+                    inserisciSimbolo(griglia, colonne, simboloGiocatore1, simboloGiocatore2, righe);
                     sceltaValida = true;
                     break;
                 case 2:
                     stampaGriglia(griglia, righe, colonne);
+                    inserisciSimbolo(griglia, colonne, simboloGiocatore1, simboloGiocatore2, righe);
                     sceltaValida = true;
                     break;
                 default:
@@ -53,7 +79,7 @@ public class Progetto {
                     break;
             }
         }
-
+        
 
         
     }
