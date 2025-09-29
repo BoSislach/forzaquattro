@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+
 public class Progetto {
 
     public static void inserisciSimbolo(char[][] griglia, int COLONNE, char simboloGiocatore1, char simboloGiocatore2, int RIGHE) {
