@@ -74,12 +74,12 @@ public class Progetto {
             scelta = scanner.nextInt();
             switch (scelta) {
                 case 1:
-                    stampaGriglia(griglia, RIGHE, COLONNE);
+                    
                     inserisciSimbolo(griglia, COLONNE, simboloGiocatore1, simboloGiocatore2, RIGHE);
                     sceltaValida = true;
                     break;
                 case 2:
-                    stampaGriglia(griglia, RIGHE, COLONNE);
+                    
                     inserisciSimbolo(griglia, COLONNE, simboloGiocatore1, simboloGiocatore2, RIGHE);
                     sceltaValida = true;
                     break;
