@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Progetto {
 
     public static void inserisciSimbolo(char[][] griglia, int COLONNE, char simboloGiocatore1, char simboloGiocatore2, int RIGHE) {
@@ -24,7 +23,13 @@ public class Progetto {
        
     }
 
-
+    static void inizializzaGriglia(char[][] griglia, int RIGHE, int COLONNE, char VUOTO) {
+        for (int i = 0; i < RIGHE; j++) {
+            for (int j = 0; j < COLONNE; j++) {
+                griglia[i][j] = VUOTO;
+            }
+        }
+    }
 
 
     public static void stampaGriglia(char[][] griglia, int righe, int colonne) {
@@ -55,7 +60,7 @@ public class Progetto {
         char simboloGiocatore2 = 'O';
         char[][] griglia = new char[RIGHE][COLONNE];
 
-
+        inizializzaGriglia(griglia, RIGHE, COLONNE, niente);
         System.out.println("Scegli la modalità di gioco: ");
         System.out.println("1. Giocatore vs Giocatore");
         System.out.println("2. Giocatore vs Computer");
