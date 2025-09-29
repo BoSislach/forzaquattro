@@ -1,18 +1,18 @@
 import java.util.Scanner;
 public class Progetto {
 
-    public static void inserisciSimbolo(char[][] griglia, int colonna, char simboloGiocatore1, char simboloGiocatore2, int righe) {
+    public static void inserisciSimbolo(char[][] griglia, int COLONNE, char simboloGiocatore1, char simboloGiocatore2, int RIGHE) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Inserisci la colonna (1-7) per il simbolo: \n");
         int colonnaScelta = scanner.nextInt();
 
-        for (int i = righe - 1; i >= 0; i--) {
+        for (int i = RIGHE - 1; i >= 0; i--) {
             griglia[i][(colonnaScelta - 1) * 2 + 1] = simboloGiocatore1;
         }if(colonnaScelta < 1 || colonnaScelta > 7) {
             System.out.println("Colonna non valida. Inserisci un numero tra 1 e 7.");
             return;
         }
-        stampaGriglia(griglia, righe, colonna);
+        stampaGriglia(griglia, RIGHE, COLONNE);
     }
 
     public static char alternaTurni() {
@@ -36,8 +36,9 @@ public class Progetto {
             }
             System.out.println();
         }
-        System.out.println("-----------------------");
-        System.out.println(" 1  2  3  4  5  6  7 ");
+        System.out.println("---------------");
+        System.out.println(" 1 2 3 4 5 6 7 ");
+        System.out.println();
     }
 
 
@@ -45,11 +46,12 @@ public class Progetto {
     public static void main(String[] args) {
         
 
-        int righe = 16;
-        int colonne = 16;
+        int RIGHE = 6;
+        int COLONNE = 7;
+        char niente = ' ';
         char simboloGiocatore1 = 'X';
         char simboloGiocatore2 = 'O';
-        char[][] griglia = new char[righe][colonne];
+        char[][] griglia = new char[RIGHE][COLONNE];
 
 
         System.out.println("Scegli la modalità di gioco: ");
@@ -65,13 +67,13 @@ public class Progetto {
             scelta = scanner.nextInt();
             switch (scelta) {
                 case 1:
-                    stampaGriglia(griglia, righe, colonne);
-                    inserisciSimbolo(griglia, colonne, simboloGiocatore1, simboloGiocatore2, righe);
+                    stampaGriglia(griglia, RIGHE, COLONNE);
+                    inserisciSimbolo(griglia, COLONNE, simboloGiocatore1, simboloGiocatore2, RIGHE);
                     sceltaValida = true;
                     break;
                 case 2:
-                    stampaGriglia(griglia, righe, colonne);
-                    inserisciSimbolo(griglia, colonne, simboloGiocatore1, simboloGiocatore2, righe);
+                    stampaGriglia(griglia, RIGHE, COLONNE);
+                    inserisciSimbolo(griglia, COLONNE, simboloGiocatore1, simboloGiocatore2, RIGHE);
                     sceltaValida = true;
                     break;
                 default:
