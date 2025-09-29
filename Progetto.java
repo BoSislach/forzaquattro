@@ -14,6 +14,10 @@ public class Progetto {
             System.out.println("Colonna non valida. Scegli un numero tra 1 e 7.");
             }
         } while (colonnaScelta < 1 || colonnaScelta > COLONNE);
+
+        
+
+
         stampaGriglia(griglia, RIGHE, COLONNE);
     }
 
@@ -34,19 +38,7 @@ public class Progetto {
 
 
     public static void stampaGriglia(char[][] griglia, int righe, int colonne) {
-        for (int i = 0; i < righe; i++) {
-            for (int j = 0; j < colonne; j++) {
-                if(j%2==0){
-                     griglia[i][j] = '|';
-                }
-
-                System.out.print(griglia[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("---------------");
-        System.out.println(" 1 2 3 4 5 6 7 ");
-        System.out.println();
+        
     }
 
 
