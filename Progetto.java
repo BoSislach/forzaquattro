@@ -4,15 +4,16 @@ public class Progetto {
 
     public static void inserisciSimbolo(char[][] griglia, int COLONNE, char simboloGiocatore1, char simboloGiocatore2, int RIGHE) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Inserisci la colonna (1-7) per il simbolo: \n");
-        int colonnaScelta = scanner.nextInt();
-
-        for (int i = RIGHE - 1; i >= 0; i--) {
-            griglia[i][(colonnaScelta - 1) * 2 + 1] = simboloGiocatore1;
-        }if(colonnaScelta < 1 || colonnaScelta > 7) {
-            System.out.println("Colonna non valida. Inserisci un numero tra 1 e 7.");
-            return;
-        }
+        stampaGriglia(griglia, RIGHE, COLONNE);
+        int colonnaScelta;
+        do {
+            System.out.print("Inserisci la colonna (1-7) per il simbolo: ");
+            colonnaScelta = scanner.nextInt();
+            
+            if (colonnaScelta < 1 || colonnaScelta > COLONNE) {
+            System.out.println("Colonna non valida. Scegli un numero tra 1 e 7.");
+            }
+        } while (colonnaScelta < 1 || colonnaScelta > COLONNE);
         stampaGriglia(griglia, RIGHE, COLONNE);
     }
 
