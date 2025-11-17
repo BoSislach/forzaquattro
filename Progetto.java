@@ -1,13 +1,5 @@
 import java.util.Scanner;
-public class Progetto {
-
-    
-
-    public static char alternaTurni() {
-        return 'X';
-    }
-
-    
+public class Progetto {  
     public static void main(String[] args) {
         int RIGHE = 6;
         int COLONNE = 7;
