@@ -1,7 +1,7 @@
 import java.util.Scanner;
-
 public class InserisciSimbolo {
-    static char inserisciSimbolo(char[][] griglia, char turno, int COLONNE, char simboloGiocatore1, char simboloGiocatore2, Scanner scanner) {
+    public static char inserisciSimbolo(char[][] griglia, char turno, int COLONNE, char simboloGiocatore1, char simboloGiocatore2) {
+        Scanner scanner = new Scanner(System.in);
         char pedina = turno;
 
         System.out.print("Giocatore " + pedina + ", scegli una colonna (1-" + COLONNE + "): ");
@@ -19,7 +19,7 @@ public class InserisciSimbolo {
 
         int riga = ProssimaRigaVuota.prossimaRigaVuota(griglia, colonna);
         griglia[riga][colonna] = pedina;
-        StampaGriglia.stampaGriglia(griglia, griglia.length, COLONNE);
+        
         return AlternaTurni.alternaTurni(turno, simboloGiocatore1, simboloGiocatore2);
     }
 }
