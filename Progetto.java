@@ -1,11 +1,16 @@
+
 import java.util.Scanner;
-public class Progetto {  
+
+public class Progetto {
+
     public static void main(String[] args) {
         int RIGHE = 6;
         int COLONNE = 7;
         char niente = ' ';
         char simboloGiocatore1 = 'X';
         char simboloGiocatore2 = 'O';
+        char simboloComputer;
+        char turno = simboloGiocatore1;
         char[][] griglia = new char[RIGHE][COLONNE];
 
         InizializzaGriglia.inizializzaGriglia(griglia, RIGHE, COLONNE, niente);
@@ -15,7 +20,7 @@ public class Progetto {
         System.out.println("Scegli la modalità di gioco: ");
         System.out.println("1. Giocatore vs Giocatore");
         System.out.println("2. Giocatore vs Computer");
-        
+
         int scelta = 0;
         boolean sceltaValida = false;
 
@@ -75,6 +80,66 @@ public class Progetto {
                 case 2:
                     System.out.println("Modalità scelta: Giocatore vs Computer");
                     sceltaValida = true;
+                    boolean isVittoriaComputer = false;
+                    boolean pareggioComputer = false;
+                    simboloComputer = simboloGiocatore2;
+
+
+                    StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
+
+                    while (!isVittoriaComputer && !pareggioComputer) {
+
+
+                        
+                        turno = InserisciSimbolo.inserisciSimbolo(griglia, turno, COLONNE, simboloGiocatore1, simboloComputer, scanner);
+                        
+
+
+                        
+                        //rimanere
+                        char simboloCorrente;
+                        if (turno == simboloGiocatore1) {
+                            simboloCorrente = simboloComputer;
+                        } else {
+                            simboloCorrente = simboloGiocatore1;
+                        }
+
+                        isVittoriaComputer = ControllaVincita.controllaVincita(griglia, RIGHE, COLONNE, simboloCorrente); //rimanere
+                        Clear.screen();//rimanere
+                        System.out.println("\n");//rimanere
+                        StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);//rimanere
+
+
+
+
+
+                        if (isVittoriaComputer) {
+                            System.out.println("Il giocatore " + simboloCorrente + " ha vinto!");
+                            break;
+                        }
+
+
+
+                        
+                        //rimanere
+                        pareggioComputer = true;
+                        for (int i = 0; i < RIGHE; i++) {
+                            for (int j = 0; j < COLONNE; j++) {
+                                if (griglia[i][j] == niente) {
+                                    pareggioComputer = false;
+                                    break;
+                                }
+                            }
+                            if (!pareggioComputer) {
+                                break;
+                            }
+                        }
+
+                        //rimanere
+                        if (pareggioComputer) {
+                            System.out.println("Parità! La griglia è piena.");
+                        }
+                    }
                     
                     break;
 
