@@ -1,6 +1,4 @@
-
 import java.util.Scanner;
-
 public class Progetto {
 
     public static void main(String[] args) {
@@ -35,11 +33,12 @@ public class Progetto {
                     boolean isVittoria = false;
                     boolean pareggio = false;
 
-                    StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
-
                     while (!isVittoria && !pareggio) {
-                        
-                        turno = InserisciSimbolo.inserisciSimbolo(griglia, turno, COLONNE, simboloGiocatore1, simboloGiocatore2, scanner);
+                        Clear.screen();
+                        System.out.println("\n");
+                        StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
+
+                        turno = InserisciSimbolo.inserisciSimbolo(griglia, turno, COLONNE, simboloGiocatore1, simboloGiocatore2);
 
                         char simboloCorrente;
                         if (turno == simboloGiocatore1) {
@@ -49,10 +48,12 @@ public class Progetto {
                         }
 
                         isVittoria = ControllaVincita.controllaVincita(griglia, RIGHE, COLONNE, simboloCorrente);
-                        Clear.screen();
-                        System.out.println("\n");
-                        StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
                         if (isVittoria) {
+                            Clear.screen();
+                            System.out.println("\n");
+                            StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
+
+                            System.out.println("\n");
                             System.out.println("Il giocatore " + simboloCorrente + " ha vinto!");
                             break;
                         }
@@ -71,6 +72,9 @@ public class Progetto {
                         }
 
                         if (pareggio) {
+                            Clear.screen();
+                            System.out.println("\n");
+                            StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
                             System.out.println("Parità! La griglia è piena.");
                         }
                     }
@@ -84,19 +88,14 @@ public class Progetto {
                     boolean pareggioComputer = false;
                     simboloComputer = simboloGiocatore2;
 
-
-                    StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
-
                     while (!isVittoriaComputer && !pareggioComputer) {
+                        Clear.screen();
+                        System.out.println("\n");
+                        StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
 
+                        char turnoPrecedente = turno;
+                        turno = InserisciSimboloComputer.inserisciSimboloComputer(griglia, turno, COLONNE, simboloGiocatore1, simboloComputer);
 
-                        
-                        turno = MossaComputer.inserisciSimbolo(griglia, turno, COLONNE, simboloGiocatore1, simboloComputer);
-                        
-
-
-                        
-                        //rimanere
                         char simboloCorrente;
                         if (turno == simboloGiocatore1) {
                             simboloCorrente = simboloComputer;
@@ -104,24 +103,16 @@ public class Progetto {
                             simboloCorrente = simboloGiocatore1;
                         }
 
-                        isVittoriaComputer = ControllaVincita.controllaVincita(griglia, RIGHE, COLONNE, simboloCorrente); //rimanere
-                        Clear.screen();//rimanere
-                        System.out.println("\n");//rimanere
-                        StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);//rimanere
-
-
-
-
+                        isVittoriaComputer = ControllaVincita.controllaVincita(griglia, RIGHE, COLONNE, simboloCorrente);
 
                         if (isVittoriaComputer) {
+                            Clear.screen();
+                            System.out.println("\n");
+                            StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
                             System.out.println("Il giocatore " + simboloCorrente + " ha vinto!");
                             break;
                         }
 
-
-
-                        
-                        //rimanere
                         pareggioComputer = true;
                         for (int i = 0; i < RIGHE; i++) {
                             for (int j = 0; j < COLONNE; j++) {
@@ -135,12 +126,13 @@ public class Progetto {
                             }
                         }
 
-                        //rimanere
                         if (pareggioComputer) {
+                            Clear.screen();
+                            System.out.println("\n");
+                            StampaGriglia.stampaGriglia(griglia, RIGHE, COLONNE);
                             System.out.println("Parità! La griglia è piena.");
                         }
                     }
-                    
                     break;
 
                 default:
