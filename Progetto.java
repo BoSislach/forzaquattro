@@ -91,7 +91,7 @@ public class Progetto {
 
 
                         
-                        turno = InserisciSimbolo.inserisciSimbolo(griglia, turno, COLONNE, simboloGiocatore1, simboloComputer, scanner);
+                        turno = MossaComputer.inserisciSimbolo(griglia, turno, COLONNE, simboloGiocatore1, simboloComputer);
                         
 
 
