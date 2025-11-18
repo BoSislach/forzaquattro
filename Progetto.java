@@ -76,7 +76,6 @@ public class Progetto {
                     System.out.println("Modalità scelta: Giocatore vs Computer");
                     sceltaValida = true;
                     
-                    System.out.println("Implementazione Giocatore vs Computer non ancora fatta.");
                     break;
 
                 default:
