@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class InserisciSimbolo {
+public class InserisciSimbolo{
     public static char inserisciSimbolo(char[][] griglia, char turno, int COLONNE, char simboloGiocatore1, char simboloGiocatore2) {
         Scanner scanner = new Scanner(System.in);
         char pedina = turno;
@@ -23,3 +23,4 @@ public class InserisciSimbolo {
         return AlternaTurni.alternaTurni(turno, simboloGiocatore1, simboloGiocatore2);
     }
 }
+
