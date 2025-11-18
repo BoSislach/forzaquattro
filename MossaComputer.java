@@ -1,4 +1,3 @@
-
 public class MossaComputer {
 
     public static char inserisciSimbolo(char[][] griglia, char turno, int COLONNE, char simboloGiocatore1, char simboloGiocatore2) {
